@@ -7,10 +7,11 @@ const navigationItems = ['Overview', 'Expenses', 'Categories & budgets', 'Settin
 
 export function AuthenticatedApp() {
   const { error, getAccessTokenSilently, isAuthenticated, isLoading, loginWithRedirect, logout, user } = useAuth0()
+  const userId = user?.sub
   const householdQuery = useQuery({
-    queryKey: ['current-household'],
+    queryKey: ['current-household', userId],
     queryFn: () => getCurrentHousehold(getAccessTokenSilently),
-    enabled: isAuthenticated,
+    enabled: isAuthenticated && Boolean(userId),
     retry: false,
   })
   const householdErrorMessage = householdQuery.error instanceof Error

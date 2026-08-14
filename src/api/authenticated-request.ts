@@ -18,7 +18,8 @@ export async function authenticatedRequest<T>(
   })
 
   if (!response.ok) {
-    throw new Error(`The API request failed with status ${response.status}.`)
+    const statusText = response.statusText ? ` ${response.statusText}` : ''
+    throw new Error(`The API request failed with status ${response.status}${statusText}.`)
   }
 
   return response.json() as Promise<T>
