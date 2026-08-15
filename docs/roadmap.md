@@ -2,13 +2,13 @@
 
 ## In progress
 
-- [ ] Auth0 login and authenticated API client.
+- [x] Auth0 login and authenticated API client.
+- [ ] K3s development deployment through the GitOps repository and Argo CD.
 
 ## Planned
 
 - [ ] Expense-entry vertical slice: dashboard, add expense, and recent expenses.
 - [ ] Categories and monthly budgets.
-- [ ] Deployment through the GitOps repository and Argo CD.
 
 ## Done
 
